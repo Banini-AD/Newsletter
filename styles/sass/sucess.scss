@@ -1,0 +1,123 @@
+@use "variables" as *;
+@use "mixins";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $neutral-color-white;
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  padding: $spacing-4;
+
+  @include mixins.respond("tablet-pt") {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $neutral-color-blue-700;
+    margin: 0 auto;
+  }
+}
+
+.success-message {
+  width: min(100%, 540px);
+  height: 100vh;
+  padding: $spacing-5 * 6 $spacing-3 $spacing-5 * 2 $spacing-3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-5;
+
+  .top-section {
+    display: flex;
+    gap: $spacing-4;
+    flex-direction: column;
+
+    img {
+      width: $spacing-5 * 2;
+      height: auto;
+    }
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  h1 {
+    margin-bottom: $spacing-2;
+    font-size: $spacing-5 * 1.25;
+  }
+
+  .success-email {
+    color: $neutral-color-blue-800;
+    font-weight: bold;
+  }
+
+  #dismiss-button {
+    background-color: $neutral-color-blue-800;
+    color: $neutral-color-white;
+    border: none;
+    padding: $spacing-4 0;
+    border-radius: $spacing-1;
+    cursor: pointer;
+    width: 100%;
+    -webkit-border-radius: $spacing-1;
+    -moz-border-radius: $spacing-1;
+    -ms-border-radius: $spacing-1;
+    -o-border-radius: $spacing-1;
+
+    &:hover {
+      background: $gradient;
+    }
+  }
+
+  @include mixins.respond("tablet-pt") {
+    display: flex;
+    margin: 0 auto;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $neutral-color-white;
+    height: auto;
+    padding: $spacing-5;
+    border-radius: $spacing-5;
+    -webkit-border-radius: $spacing-5;
+    -moz-border-radius: $spacing-5;
+    -ms-border-radius: $spacing-5;
+    -o-border-radius: $spacing-5;
+  }
+
+  @include mixins.respond-up("tablet-pt") {
+    width: 50%;
+  }
+}
+/*
+  align-items: center;
+
+  .top-section{
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+
+    img{
+      margin-bottom: $spacing-5;
+      width: $spacing-5 * 2;
+    }
+
+    
+    p{
+      color: $neutral-color-grey;
+      font-size: 1.1rem;
+
+      
+    }
+  }
+
+  
+}
+}
+*/

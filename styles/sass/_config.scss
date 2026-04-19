@@ -1,0 +1,28 @@
+@use './variables';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html{
+  font-size: 16px;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  //font-size: clamp(0.6rem, 1.2vw, 1.5rem);
+  
+
+  /*@include respond-down("tablet-pt") {
+    width: 100%;
+    flex-direction: column;
+  }
+}*/
+}

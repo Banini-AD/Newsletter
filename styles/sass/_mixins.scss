@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "variables" ;
+
+
+@mixin respond-to($size) {
+  @if map.has-key(variables.$breakpoints-down, $size) {
+    @media (max-width: map.get(variables.$breakpoints-down, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$size}' not found in map.";
+  }
+}
+@mixin respond($size) {
+  @if map.has-key(variables.$breakpoints-down, $size) {
+    @media (min-width: map.get(variables.$breakpoints-down, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$size}' not found in map.";
+  }
+}
+
+
+@mixin respond-up($size) {
+  @if map.has-key(variables.$breakpoints-down, $size) {
+    @media (min-width: map.get(variables.$breakpoints-down, $size)) and (max-width: map.get(variables.$breakpoints-down, "desktop-sm")) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$size}' not found in map.";
+  }
+}

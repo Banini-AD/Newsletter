@@ -1,0 +1,211 @@
+@use "./config";
+@use "./variables";
+@use "sass:color";
+@use "./mixins";
+
+body {
+  background-color: variables.$neutral-color-blue-700;
+}
+
+.container {
+  width: 50vw;
+  margin: (variables.$spacing-1 * 10) auto;
+  border-radius: variables.$spacing-4;
+  -webkit-border-radius: variables.$spacing-4;
+  -moz-border-radius: variables.$spacing-4;
+  -ms-border-radius: variables.$spacing-4;
+  -o-border-radius: variables.$spacing-4;
+  display: flex;
+  background-color: variables.$neutral-color-white;
+  padding: variables.$spacing-4;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: variables.$spacing-5;
+
+    article {
+      h1 {
+        margin-bottom: variables.$spacing-2;
+        font-size: variables.$spacing-5 * 1.5;
+      }
+      p,
+      ul > li {
+        margin-bottom: variables.$spacing-1;
+      }
+
+      ul {
+        list-style-image: url(../../assets/images/icon-list.svg);
+        margin-bottom: variables.$spacing-4;
+
+        li {
+          list-style-position: inside;
+          padding: 0;
+        }
+      }
+
+      @include mixins.respond-up("tablet-pt") {
+        text-align: left;
+        align-self: flex-start;
+      }
+
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      input {
+        width: 100%;
+        padding: variables.$spacing-3;
+        margin-bottom: variables.$spacing-3;
+        border-radius: variables.$spacing-1;
+        -webkit-border-radius: variables.$spacing-1;
+        -moz-border-radius: variables.$spacing-1;
+        -ms-border-radius: variables.$spacing-1;
+        -o-border-radius: variables.$spacing-1;
+
+
+        @include mixins.respond-up("tablet-pt") {
+          width: 100%;
+      }
+      }
+
+      .labels {
+        display: flex;
+        justify-content: space-between;
+      }
+      label,
+      .error-message {
+        margin-bottom: variables.$spacing-1;
+        font-weight: 700;
+      }
+
+      .error-message {
+        color: variables.$primary-color;
+      }
+
+      .invisible {
+        display: none;
+      }
+
+      .visible {
+        display: block;
+      }
+
+      .email-input {
+        border: 1px solid variables.$neutral-color-grey;
+
+        &:focus {
+          outline: none;
+          border: 1px solid variables.$neutral-color-grey;
+        }
+      }
+
+      .error {
+        border: 1px solid variables.$primary-color;
+        color: variables.$primary-color;
+        background-color: color.adjust(variables.$primary-color, $alpha: -0.5);
+
+        &:focus {
+          outline: none;
+          border: 1px solid variables.$primary-color;
+        }
+      }
+
+      input[type="submit"] {
+        background-color: variables.$neutral-color-blue-800;
+        color: variables.$neutral-color-white;
+        border: none;
+        cursor: pointer;
+
+        &:active,
+        &:hover {
+          background: variables.$gradient;
+        }
+
+        @include mixins.respond-to("mobile-lg") {
+          padding: variables.$spacing-4 0;
+        }
+      }
+    }
+
+    @include mixins.respond-to("mobile-lg") {
+      height: 100%;
+      padding: variables.$spacing-4;
+      line-height: 2;
+      width: 100%;
+      gap: variables.$spacing-3;
+      justify-content: space-between;
+    }
+
+    @include mixins.respond-up("tablet-pt") {
+       width: 100%;
+
+      }
+  }
+
+  .img-section {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+
+      @include mixins.respond-to("mobile-lg") {
+        content: url(../../assets/images/illustration-sign-up-mobile.svg);
+      }
+
+      @include mixins.respond-up("tablet-pt") {
+        content: url(../../assets/images/illustration-sign-up-tablet.svg);
+      }
+    }
+
+    @include mixins.respond-to("mobile-lg") {
+      width: 100%;
+    }
+    @include mixins.respond-up("tablet-pt") {
+        width: 100%;
+      }
+  }
+
+  @include mixins.respond-to("mobile-lg") {
+    width: 100vw;
+    height: 100%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+
+  @include mixins.respond-up("tablet-pt") {
+    flex-direction: column-reverse;
+    width: 75%;
+  }
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  color: variables.$neutral-color-white;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+
+  @include mixins.respond-to("mobile-lg") {
+    display: none;
+  }
+}
