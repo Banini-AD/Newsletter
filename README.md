@@ -48,7 +48,7 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- Sass
 - Vanilla JavaScript (ES6)
 - `sessionStorage` for passing the email between pages
 - Mobile-first responsive design
